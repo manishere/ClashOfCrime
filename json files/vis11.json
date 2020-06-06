@@ -1,0 +1,162 @@
+{
+  "axes": [
+    {
+      "scale": "x",
+      "title": "CRIME SECTIONS under IPC-1860",
+      "type": "x"
+    },
+    {
+      "scale": "y",
+      "title": "# of Crimes REPORTEDIN YAMUNANAGAR",
+      "type": "y"
+    }
+  ],
+  "data": [
+    {
+      "name": "table",
+      "values": [
+        {
+          "col": "data",
+          "idx": 54,
+          "val": 2
+        },
+        {
+          "col": "data",
+          "idx": 279,
+          "val": 4
+        },
+        {
+          "col": "data",
+          "idx": 67,
+          "val": 1
+        },
+        {
+          "col": "data",
+          "idx": 148,
+          "val": 2
+        },
+        {
+          "col": "data",
+          "idx": 304,
+          "val": 1
+        },
+		{
+          "col": "data",
+          "idx": 379,
+          "val": 8
+        },
+		{
+          "col": "data",
+          "idx": 420,
+          "val": 3
+        },
+		{
+          "col": "data",
+          "idx": 454,
+          "val": 3
+        }
+      ]
+    },
+    {
+      "name": "stats",
+      "source": "table",
+      "transform": [
+        {
+          "keys": [
+            "data.idx"
+          ],
+          "type": "facet"
+        },
+        {
+          "type": "stats",
+          "value": "data.val"
+        }
+      ]
+    }
+  ],
+  "height": 200,
+  "legends": [],
+  "marks": [
+    {
+      "from": {
+        "data": "table",
+        "transform": [
+          {
+            "keys": [
+              "data.col"
+            ],
+            "type": "facet"
+          },
+          {
+            "height": "data.val",
+            "point": "data.idx",
+            "type": "stack"
+          }
+        ]
+      },
+      "marks": [
+        {
+          "properties": {
+            "enter": {
+              "fill": {
+                "field": "data.col",
+                "scale": "color"
+              },
+              "width": {
+                "band": true,
+                "offset": -1,
+                "scale": "x"
+              },
+              "x": {
+                "field": "data.idx",
+                "scale": "x"
+              },
+              "y": {
+                "field": "y",
+                "scale": "y"
+              },
+              "y2": {
+                "field": "y2",
+                "scale": "y"
+              }
+            }
+          },
+          "type": "rect"
+        }
+      ],
+      "type": "group"
+    }
+  ],
+  "padding": "auto",
+  "scales": [
+    {
+      "domain": {
+        "data": "table",
+        "field": "data.idx"
+      },
+      "name": "x",
+      "range": "width",
+      "type": "ordinal",
+      "zero": false
+    },
+    {
+      "domain": {
+        "data": "stats",
+        "field": "sum"
+      },
+      "name": "y",
+      "nice": true,
+      "range": "height"
+    },
+    {
+      "domain": {
+        "data": "table",
+        "field": "data.col"
+      },
+      "name": "color",
+      "range": "category20",
+      "type": "ordinal"
+    }
+  ],
+  "width": 400
+}
